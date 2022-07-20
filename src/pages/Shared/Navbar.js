@@ -17,11 +17,11 @@ const Navbar = () => {
                         <li><CustomLink to='/blog'>BLOG</CustomLink></li>
                     </ul>
                 </div>
-                <Link to='/' style={{ cursor: "pointer" }}><img src={logo} className='w-20 hidden lg:block' alt='logo'></img></Link>
-                <Link to='/' style={{ cursor: "pointer" }} className='btn btn-ghost normal-case text-xl lg:hidden text-white'>ELECTRO TOOLS</Link>
+                <Link to='/' style={{ cursor: "pointer" }}><img src={logo} className='w-12 hidden lg:block' alt='logo'></img></Link>
+                <Link to='/' style={{ cursor: "pointer" }} className='btn btn-ghost normal-case text-xl lg:hidden text-white'>ELECTRO<span style={{ color: "orange" }}>-TOOLS</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="flex items-center gap-5 p-5 text-white text-xl">
+                <ul className="flex items-center gap-5 text-white">
                     <li><CustomLink to='/'>HOME</CustomLink></li>
                     <li><CustomLink to='/about'>ABOUT</CustomLink></li>
                     <li><CustomLink to='/blog'>BLOG</CustomLink></li>

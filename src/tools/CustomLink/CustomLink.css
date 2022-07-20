@@ -1,8 +1,16 @@
 .nav-item:hover {
-    background-color: rgba(37, 37, 37, 0.452);
-    border: 3px solid red;
+    background-color: rgb(37, 37, 37);
     box-shadow: 0 0 10px red;
-    padding: 5px 10px;
-    border-radius: 10px;
+    border: 2px solid red;
 
+
+}
+
+.nav-item {
+    transition: all 0.3s ease-in-out;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background: transparent;
 }
