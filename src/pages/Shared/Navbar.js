@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png';
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-primary lg:justify-around">
+        <div className="navbar bg-primary lg:justify-around sticky top-0 z-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-secondary mx-5 mr-20 lg:hidden">

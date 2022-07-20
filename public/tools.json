@@ -1,0 +1,34 @@
+[
+    {
+        "_id": 1,
+        "name": "Soldering Iron",
+        "price": "300",
+        "description": "This is a soldering iron which is used to attach or solder wire and many electronic parts. This adjustable-temperature soldering iron is a great tool for when you don’t want to break the bank but need a reliable iron to get the job done. Operating at 60w and 110v, this soldering iron can be adjusted to five different temperatures: 280°c, 330°c, 380°c, 430°c and 480°c. This iron is very easy to use and features an on/off switch, allowing you to keep it plugged in on your workbench stand for quick access.",
+        "quantity": 6,
+        "img": "https://i.ibb.co/Qvv9pHW/Soldering-Iron.jpg"
+    },
+    {
+        "_id": 2,
+        "name": "DC High RPM Motor",
+        "price": "250",
+        "description": "DC Gear motor, is also called DC Geared Motor, Geared Dc Motor and gearhead motor or gearbox motor. It consists of a electric DC motor and a gearbox or gearhead; these gearheads are used to reduce the DC motor speed, while increase the DC motor torque. Therefore user can get lower speed and higher torque from gear motor.",
+        "quantity": 4,
+        "img": "https://i.ibb.co/HVvRwvv/motor-30rpm-big-project-electronics-bangladesh-1000x1000.jpg"
+    },
+    {
+        "_id": 3,
+        "name": "TDA7388 IC",
+        "price": "150",
+        "description": "An integrated circuit (IC), sometimes called a chip, microchip or microelectronic circuit, is a semiconductor wafer on which thousands or millions of tiny resistors, capacitors, diodes and transistors are fabricated. An IC can function as an amplifier, oscillator, timer, counter, logic gate, computer memory, microcontroller or microprocessor.",
+        "quantity": 6,
+        "img": "https://i.ibb.co/51mjzGf/IC-TDA7388.jpg"
+    },
+    {
+        "_id": 4,
+        "name": "TDA7388 IC",
+        "price": "150",
+        "description": "An integrated circuit (IC), sometimes called a chip, microchip or microelectronic circuit, is a semiconductor wafer on which thousands or millions of tiny resistors, capacitors, diodes and transistors are fabricated. An IC can function as an amplifier, oscillator, timer, counter, logic gate, computer memory, microcontroller or microprocessor.",
+        "quantity": 6,
+        "img": "https://i.ibb.co/51mjzGf/IC-TDA7388.jpg"
+    }
+]
