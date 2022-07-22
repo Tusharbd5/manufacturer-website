@@ -26,7 +26,7 @@ const Purchase = () => {
 
     const handlePurchase = (event) => {
         event.preventDefault();
-        const orderQuantity = parseInt(event.target.quantity.value);
+        const orderQuantity = parseInt(event.target.quantity.value || 3);
         if (orderQuantity < 0) {
             toast.error('Never Order Minus Quantity')
         }
@@ -97,12 +97,13 @@ const Purchase = () => {
                     <img className='w-72 mx-auto shadow-xl rounded-3xl' src={img} alt="" />
                     <h3 className='text-2xl font-semibold mt-5 text-secondary'>{name}</h3>
                     <p className='text-justify mt-3'>{description}</p>
-                    <p className='text-xl text-orange-600 font-semibold'>Available: {quantity} items</p>
+
+                    <p className={quantity ? 'text-xl text-blue-600 font-semibold' : 'text-xl text-red-600 font-semibold'}>{quantity ? quantity + ' Items Available' : "Sold Out"} </p>
                     <p className='text-2xl'>Price: {price}$</p>
                 </div>
-                <input type="number" name='quantity' placeholder="Order Quantity" className="input input-bordered input-secondary w-36 mt-3" required />
+                <input type="number" name='quantity' placeholder="Min 3" className="input input-bordered input-secondary w-36 mt-3" required />
 
-                <input type='submit' value='Place Order' className='btn btn-primary mt-3 block mx-auto'></input>
+                <input disabled={!quantity} type='submit' value='Place Order' className='btn btn-primary mt-3 block mx-auto'></input>
             </form>
 
 
