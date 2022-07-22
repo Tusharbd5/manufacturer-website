@@ -101,7 +101,7 @@ const Purchase = () => {
                     <p className={quantity ? 'text-xl text-blue-600 font-semibold' : 'text-xl text-red-600 font-semibold'}>{quantity ? quantity + ' Items Available' : "Sold Out"} </p>
                     <p className='text-2xl'>Price: {price}$</p>
                 </div>
-                <input type="number" name='quantity' placeholder="Min 3" className="input input-bordered input-secondary w-36 mt-3" required />
+                <input type="number" name='quantity' placeholder="Min 3" className="input input-bordered input-secondary w-36 mt-3" />
 
                 <input disabled={!quantity} type='submit' value='Place Order' className='btn btn-primary mt-3 block mx-auto'></input>
             </form>
