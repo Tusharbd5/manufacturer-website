@@ -5,13 +5,13 @@ const Tools = () => {
     const navigate = useNavigate();
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        fetch('tools.json')
+        fetch('http://localhost:5000/tool')
             .then(res => res.json())
             .then(data => setTools(data));
     }, []);
 
-    const handleOrder = () => {
-        navigate('/purchase');
+    const handleOrder = (id) => {
+        navigate(`/purchase/${id}`);
     }
     return (
         <div className='mt-5'>
@@ -31,7 +31,7 @@ const Tools = () => {
 
                             <div className="card-actions">
                                 <button className="btn btn-secondary btn-sm text-white"
-                                    onClick={handleOrder}>PURCHASE</button>
+                                    onClick={() => handleOrder(tool._id)}>PURCHASE</button>
                             </div>
                         </div>
                     </div>)
