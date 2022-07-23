@@ -15,8 +15,16 @@ import MyOrder from './pages/Dashboard/MyOrder';
 import AddReview from './pages/Dashboard/AddReview';
 import MyProfile from './pages/Dashboard/MyProfile';
 import Users from './pages/Dashboard/Users';
+import RequireAdmin from './pages/UserInfo/RequireAdmin';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './firebase.init';
+import useAdmin from './hooks/useAdmin';
+import ManageOrders from './pages/Dashboard/ManageOrders';
+import AddTools from './pages/Dashboard/AddTools';
 
 function App() {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <div className="App">
       <Navbar></Navbar>
@@ -38,10 +46,31 @@ function App() {
           <RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>}>
-          <Route index element={<MyOrder></MyOrder>}></Route>
-          <Route path='review' element={<AddReview></AddReview>}></Route>
+          {
+            !admin && <>
+              <Route index element={<MyOrder></MyOrder>}></Route>
+              <Route path='review' element={<AddReview></AddReview>}></Route>
+            </>
+          }
+
+          <Route index element={
+            <RequireAdmin>
+              <Users></Users>
+            </RequireAdmin>
+          }></Route>
+          <Route path='users' element={<RequireAdmin>
+            <Users></Users>
+          </RequireAdmin>}></Route>
+
+          <Route path='manage-order' element={<RequireAdmin>
+            <ManageOrders></ManageOrders>
+          </RequireAdmin>}></Route>
+
+          <Route path='add-tools' element={<RequireAdmin>
+            <AddTools></AddTools>
+          </RequireAdmin>}></Route>
+
           <Route path='profile' element={<MyProfile></MyProfile>}></Route>
-          <Route path='users' element={<Users></Users>}></Route>
         </Route>
       </Routes>
 
