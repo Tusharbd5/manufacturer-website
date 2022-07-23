@@ -51,7 +51,8 @@ const MyOrder = () => {
                                 key={order._id}
                                 order={order}
                                 index={index}
-                                refetch={refetch}></Order>)
+                                refetch={refetch}
+                                isLoading={isLoading}></Order>)
                         }
                     </tbody>
                 </table>

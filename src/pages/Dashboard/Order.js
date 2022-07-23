@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { XCircleIcon } from '@heroicons/react/solid';
-import { toast } from 'react-toastify';
 import DeleteModal from './DeleteModal';
+import Loading from '../Shared/Loading';
 
-const Order = ({ order, index, refetch }) => {
+const Order = ({ order, index, refetch, isLoading }) => {
     const { _id, productName, productPic, orderedQuantity, updatedPrice, address } = order;
     const [openModal, setOpenModal] = useState(false);
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
         <>
