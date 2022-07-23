@@ -15,7 +15,7 @@ const Review = () => {
 
             <div className='grid md:grid-cols-3 justify-center gap-10 p-5'>
                 {
-                    reviews.slice(0, 3).map(review => <div key={review._id} className="card shadow-2xl bg-lime-100">
+                    reviews.slice(0, 9).map(review => <div key={review._id} className="card shadow-2xl bg-lime-100">
                         <div className="card-body items-center text-center">
                             <h2 className="card-title font-semibold">{review.userName}</h2>
                             <p>{review.detail.length < 90 ? review.detail : review.detail.slice(0, 90) && <span title={review.detail} className='text-secondary' style={{ cursor: "pointer" }}>...read more</span>} </p>

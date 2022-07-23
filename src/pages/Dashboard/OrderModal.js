@@ -13,10 +13,11 @@ const OrderModal = ({ id, refetch, setToggole }) => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success('Order status changed');
-                setToggole(false);
-                refetch();
-
+                if (data.modifiedCount > 0) {
+                    toast.success('Order status changed');
+                    setToggole(false);
+                    refetch();
+                }
             })
     }
     return (

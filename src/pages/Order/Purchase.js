@@ -22,16 +22,16 @@ const Purchase = () => {
         return <Loading></Loading>
     }
 
-    const { name, price, description, img, quantity } = tools;
+    const { name, price, description, img, quantity, minQuantity } = tools;
 
     const handlePurchase = (event) => {
         event.preventDefault();
-        const orderQuantity = parseInt(event.target.quantity.value || 3);
+        const orderQuantity = parseInt(event.target.quantity.value || minQuantity);
         if (orderQuantity < 0) {
             toast.error('Never Order Minus Quantity')
         }
-        else if (orderQuantity < 3) {
-            toast.error('Minimum Item order is 3');
+        else if (orderQuantity < minQuantity) {
+            toast.error(`Minimum Item order is ${minQuantity}`);
         }
         else if (orderQuantity > quantity) {
             toast.error('Exceed the Limit of Quantity');
@@ -101,7 +101,7 @@ const Purchase = () => {
                     <p className={quantity ? 'text-xl text-blue-600 font-semibold' : 'text-xl text-red-600 font-semibold'}>{quantity ? quantity + ' Items Available' : "Sold Out"} </p>
                     <p className='text-2xl'>Price: {price}$</p>
                 </div>
-                <input type="number" name='quantity' placeholder="Min 3" className="input input-bordered input-secondary w-36 mt-3" />
+                <input type="number" name='quantity' placeholder={minQuantity ? 'Min ' + minQuantity : 'Min 3'} className="input input-bordered input-secondary w-36 mt-3" />
 
                 <input disabled={!quantity} type='submit' value='Place Order' className='btn btn-primary mt-3 block mx-auto'></input>
             </form>

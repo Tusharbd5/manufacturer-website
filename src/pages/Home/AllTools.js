@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Tools = () => {
+const AllTools = () => {
     const navigate = useNavigate();
     const [tools, setTools] = useState([]);
     useEffect(() => {
@@ -15,10 +15,10 @@ const Tools = () => {
     }
     return (
         <div className='mt-5'>
-            <h2 className='text-4xl font-bold text-secondary'>Tools</h2>
+            <h2 className='text-4xl font-bold text-secondary'>All Tools</h2>
             <div className='grid md:grid-cols-3 justify-center gap-10 p-5'>
                 {
-                    tools.slice(0, 6).map(tool => <div key={tool._id} className="card bg-base-100 shadow-xl">
+                    tools.map(tool => <div key={tool._id} className="card bg-base-100 shadow-xl">
                         <figure className="px-10 pt-10">
                             <img src={tool.img} alt="Shoes" className="rounded-xl" />
                         </figure>
@@ -38,11 +38,8 @@ const Tools = () => {
                 }
 
             </div>
-            <div>
-                <Link className=' bg-slate-400 rounded-3xl font-semibold text-white px-5 shadow-lg' to='/all-tools'>SHOW ALL ITEM</Link>
-            </div>
         </div>
     );
 };
 
-export default Tools;
+export default AllTools;

@@ -36,6 +36,7 @@ const MyProfile = () => {
             <div className='bg-lime-200 mt-5 lg:flex justify-center items-center'>
                 <div className='text-justify p-5'>
                     <h2 className='text-xl font-bold mb-2'>Name: {displayName}</h2>
+                    <small className='text-blue-500'>{data.role ? 'Role: ' + data.role : ''}</small>
                     <p>Email: {email}</p>
                     <p>{data.linkdin ? 'Linkdin: ' + data.linkdin : ''}</p>
                     <p>{data.location ? 'City: ' + data.location : ''}</p>
@@ -44,7 +45,7 @@ const MyProfile = () => {
                 </div>
                 <label htmlFor="edit-profile"
                     onClick={() => setOpenModal(true)}
-                    className='btn btn-secondary btn-sm mb-3 lg:mb-0'>
+                    className='btn btn-secondary btn-sm mb-3 lg:mb-0 text-white'>
                     Edit Profile
                 </label>
 

@@ -21,6 +21,7 @@ import auth from './firebase.init';
 import useAdmin from './hooks/useAdmin';
 import ManageOrders from './pages/Dashboard/ManageOrders';
 import AddTools from './pages/Dashboard/AddTools';
+import AllTools from './pages/Home/AllTools';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -33,6 +34,8 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='about' element={<About></About>}></Route>
         <Route path='blog' element={<Blog></Blog>}></Route>
+
+        <Route path='all-tools' element={<AllTools></AllTools>}></Route>
 
         <Route path='purchase/:id' element={
           <RequireAuth>
