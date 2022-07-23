@@ -1,15 +1,41 @@
 import { StarIcon } from '@heroicons/react/solid';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const AddReview = () => {
+    const [user] = useAuthState(auth);
     const onSubmit = (event) => {
         event.preventDefault();
         const rating = parseInt(event.target.rating.value);
         const detail = event.target.detail.value;
+        const userName = user?.displayName;
+        const email = user?.email;
+
+        const review = { rating, detail, userName, email };
+
 
         if (rating > 0 && rating <= 5) {
-            console.log(rating, detail);
-            event.target.reset();
+            // Send review to server
+            fetch('http://localhost:5000/review', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(review)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        toast.success('Rating successfully recorded');
+                        event.target.reset();
+                    }
+                    else {
+                        toast.error(`Review exists on user ${email}`);
+                        event.target.reset();
+                    }
+                })
         }
 
 
@@ -20,7 +46,7 @@ const AddReview = () => {
             <form onSubmit={onSubmit} className="shadow-2xl p-7 w-96 rounded-xl mx-auto">
                 <div className='flex items-center justify-center'>
                     <p className='mr-3'>Ratings:</p>
-                    <input name='rating' type="number" placeholder="Leave your rating" className="input input-bordered input-secondary" required />
+                    <input name='rating' type="number" placeholder="Your rating inside 5" className="input input-bordered input-secondary" required />
                     <StarIcon className='h-7 w-7 text-orange-600'></StarIcon>
                 </div>
                 <div>
