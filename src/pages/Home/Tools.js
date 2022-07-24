@@ -26,7 +26,7 @@ const Tools = () => {
                             <h2 className="card-title font-semibold">{tool.name}</h2>
                             <p>{tool.description.length < 90 ? tool.description : tool.description.slice(0, 90)} <span title={tool.description} className='text-secondary' style={{ cursor: "pointer" }}>...read more</span></p>
                             <p>Minimum Order: {tool.minQuantity ? tool.minQuantity : 3}</p>
-                            <p>Available-Quantity: {tool.quantity}</p>
+                            <p className='text-xl'>{tool.quantity ? 'Available: ' + tool.quantity : <span className='text-red-500'>Sold Out</span>} </p>
                             <h3 className='text-xl font-semibold'>Price: <span style={{ color: 'orange' }}>{tool.price}$</span></h3>
 
                             <div className="card-actions">

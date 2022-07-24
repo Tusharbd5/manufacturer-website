@@ -11,6 +11,7 @@ const Users = () => {
         }
     }).then(res => res.json()))
 
+
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -37,7 +38,7 @@ const Users = () => {
     }
     return (
         <div>
-            <h1>This is users: {users.length}</h1>
+            <h1>This is users: {users?.length}</h1>
 
             <div className="overflow-x-auto w-full">
 
@@ -52,7 +53,7 @@ const Users = () => {
 
                     <tbody>
                         {
-                            users.map((user, index) => <tr key={user._id}>
+                            users?.map((user, index) => <tr key={user._id}>
                                 <td>{index + 1}</td>
                                 <td>{user.email}</td>
 

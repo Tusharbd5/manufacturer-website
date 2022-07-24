@@ -19,7 +19,7 @@ const RequireAdmin = ({ children }) => {
     if (!user || !admin) {
         signOut(auth);
         localStorage.removeItem('accessToken');
-        toast.error('Warning!!You are not the admin')
+        toast.error('Warning!!You are not the admin');
         return <Navigate to="/login" state={{ from: location }} replace></Navigate>
     }
     return children;

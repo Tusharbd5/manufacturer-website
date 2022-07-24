@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { XCircleIcon } from '@heroicons/react/solid';
 import DeleteModal from './DeleteModal';
 import Loading from '../Shared/Loading';
+import { Link } from 'react-router-dom';
 
 const Order = ({ order, index, refetch, isLoading }) => {
-    const { _id, productName, productPic, orderedQuantity, updatedPrice, address } = order;
+    const { _id, productName, productPic, orderedQuantity, updatedPrice, address, paid } = order;
     const [openModal, setOpenModal] = useState(false);
     if (isLoading) {
         return <Loading></Loading>
@@ -33,7 +34,12 @@ const Order = ({ order, index, refetch, isLoading }) => {
                 <td>{address}</td>
                 <td>
                     <div className='flex items-center'>
-                        <button className='btn btn-xs btn-success mr-5 text-white'>Pay</button>
+                        {
+                            !paid && <Link to={`payment/${_id}`}><button className='btn btn-xs btn-success mr-5 text-white'>Pay</button></Link>
+                        }
+                        {
+                            paid && <span className='text-success'>Paid</span>
+                        }
 
                         {/* <button onClick={() => setOpenModal(true)}><XCircleIcon className='h-7 w-7 text-red-500 '></XCircleIcon></button> */}
 
