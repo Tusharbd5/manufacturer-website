@@ -23,6 +23,9 @@ import ManageOrders from './pages/Dashboard/ManageOrders';
 import AddTools from './pages/Dashboard/AddTools';
 import AllTools from './pages/Home/AllTools';
 import Payment from './pages/Dashboard/Payment';
+import ManageProduct from './pages/Dashboard/ManageProduct';
+import NotFound from './pages/NotFound/NotFound';
+
 
 function App() {
   const [user] = useAuthState(auth);
@@ -50,11 +53,11 @@ function App() {
           <RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>}>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
           {
             !admin && <>
               <Route index element={<MyOrder></MyOrder>}></Route>
               <Route path='review' element={<AddReview></AddReview>}></Route>
-              <Route path='payment/:id' element={<Payment></Payment>}></Route>
             </>
           }
 
@@ -75,8 +78,13 @@ function App() {
             <AddTools></AddTools>
           </RequireAdmin>}></Route>
 
+          <Route path='manage-tools' element={<RequireAdmin>
+            <ManageProduct></ManageProduct>
+          </RequireAdmin>}></Route>
+
           <Route path='profile' element={<MyProfile></MyProfile>}></Route>
         </Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
       <ToastContainer></ToastContainer>

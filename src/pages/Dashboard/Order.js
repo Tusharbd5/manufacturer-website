@@ -43,7 +43,7 @@ const Order = ({ order, index, refetch, isLoading }) => {
 
                         {/* <button onClick={() => setOpenModal(true)}><XCircleIcon className='h-7 w-7 text-red-500 '></XCircleIcon></button> */}
 
-                        <label style={{ cursor: 'pointer' }} htmlFor="delete-modal" onClick={() => setOpenModal(true)}><XCircleIcon className='h-7 w-7 text-red-500 '></XCircleIcon></label>
+                        {!paid && <label style={{ cursor: 'pointer' }} htmlFor="delete-modal" onClick={() => setOpenModal(true)}><XCircleIcon className='h-7 w-7 text-red-500 '></XCircleIcon></label>}
                         {
                             openModal && <DeleteModal
                                 id={_id}

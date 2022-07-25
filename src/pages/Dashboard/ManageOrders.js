@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -40,6 +40,7 @@ const ManageOrders = () => {
                             <th>Address</th>
                             <th>Status</th>
                             <th>Change</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
