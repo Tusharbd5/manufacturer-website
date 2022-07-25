@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import About from './pages/About/About';
-import Blog from './pages/Blog/Blog';
 import Home from './pages/Home/Home';
 import Purchase from './pages/Order/Purchase';
 import Navbar from './pages/Shared/Navbar';
@@ -25,6 +24,8 @@ import AllTools from './pages/Home/AllTools';
 import Payment from './pages/Dashboard/Payment';
 import ManageProduct from './pages/Dashboard/ManageProduct';
 import NotFound from './pages/NotFound/NotFound';
+import Blogs from './pages/Blogs/Blogs';
+import Portfolio from './pages/MyPortfolio/Portfolio';
 
 
 function App() {
@@ -37,7 +38,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='about' element={<About></About>}></Route>
-        <Route path='blog' element={<Blog></Blog>}></Route>
+        <Route path='blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='portfolio' element={<Portfolio></Portfolio>}></Route>
 
         <Route path='all-tools' element={<AllTools></AllTools>}></Route>
 

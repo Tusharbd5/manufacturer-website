@@ -1,0 +1,41 @@
+.developer-detail img {
+    border-radius: 50%;
+    border: 1px solid #ffb77c;
+    box-shadow: 0 0 30px lightgray;
+    margin-top: 50px;
+
+}
+
+.git-btn {
+    width: 20%;
+    height: 50px;
+    border: none;
+    background-image: linear-gradient(45deg, cyan, lightcyan);
+    border-radius: 20px;
+}
+
+.git-btn img {
+    margin: 0;
+    margin-right: 5px;
+}
+
+.developer-detail a:hover .git-btn {
+    background-image: linear-gradient(cyan, blue);
+    color: white;
+    box-shadow: 0 0 10px lightgray;
+}
+
+.developer-detail p {
+    text-align: justify;
+    color: gray;
+}
+
+@media screen and (max-width: 710px) {
+    .developer-detail img {
+        width: 50%;
+    }
+
+    .git-btn {
+        width: 50%;
+    }
+}
