@@ -24,7 +24,7 @@ const Payment = () => {
     }
     return (
         <div>
-            <div className="card w-38 max-w-md bg-base-200 shadow-xl my-12 mx-auto">
+            <div className="card w-2/3 lg:w-96 lg:max-w-md bg-base-200 shadow-xl my-12 mx-auto">
                 <div className="card-body">
                     <p>Hello, <span className='text-xl font-semibold'>{order.username}</span></p>
                     <div>
@@ -37,7 +37,7 @@ const Payment = () => {
                     <p className='text-xl'>Please Pay: <span className='text-orange-500 font-semibold'>{order.updatedPrice}$</span></p>
                 </div>
             </div>
-            <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-200 mx-auto">
+            <div className="card flex-shrink-0 w-2/3 lg:w-96 lg:max-w-md shadow-2xl bg-base-200 mx-auto">
                 <div className="card-body">
 
                     <Elements stripe={stripePromise}>

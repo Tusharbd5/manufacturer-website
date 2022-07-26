@@ -43,10 +43,10 @@ const AddReview = () => {
     return (
         <div className='mt-10'>
             <h3 className='lg:text-xl text-blue-600'>Please Leave Your Review</h3>
-            <form onSubmit={onSubmit} className="shadow-2xl p-7 w-96 rounded-xl mx-auto">
+            <form onSubmit={onSubmit} className="shadow-2xl p-5 lg:w-96 rounded-xl mx-auto w-72">
                 <div className='flex items-center justify-center'>
                     <p className='mr-3'>Ratings:</p>
-                    <input name='rating' type="number" placeholder="Your rating inside 5" className="input input-bordered input-secondary" required />
+                    <input name='rating' type="number" placeholder="Your rating inside 5" className="input input-bordered input-secondary w-20 lg:w-96" required />
                     <StarIcon className='h-7 w-7 text-orange-600'></StarIcon>
                 </div>
                 <div>
