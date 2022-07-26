@@ -18,7 +18,7 @@ const AddReview = () => {
 
         if (rating > 0 && rating <= 5) {
             // Send review to server
-            fetch('http://localhost:5000/review', {
+            fetch('https://thawing-savannah-54100.herokuapp.com/review', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

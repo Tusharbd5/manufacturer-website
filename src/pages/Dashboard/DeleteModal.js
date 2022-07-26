@@ -3,8 +3,12 @@ import { toast } from 'react-toastify';
 
 const DeleteModal = ({ id, refetch }) => {
     const handleDelete = id => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://thawing-savannah-54100.herokuapp.com/order/${id}`, {
             method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {

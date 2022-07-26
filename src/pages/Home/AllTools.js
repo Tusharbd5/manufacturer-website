@@ -5,7 +5,7 @@ const AllTools = () => {
     const navigate = useNavigate();
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tool')
+        fetch('https://thawing-savannah-54100.herokuapp.com/tool')
             .then(res => res.json())
             .then(data => setTools(data));
     }, []);

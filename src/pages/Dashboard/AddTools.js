@@ -30,7 +30,7 @@ const AddTools = () => {
                         minQuantity: data.minQuantity
                     }
                     // Send to database.
-                    fetch('http://localhost:5000/tool', {
+                    fetch('https://thawing-savannah-54100.herokuapp.com/tool', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

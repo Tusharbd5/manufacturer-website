@@ -11,7 +11,7 @@ const MyOrder = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
-    const { data: orders, isLoading, refetch } = useQuery(['order'], () => fetch(`http://localhost:5000/order?userEmail=${user.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery(['order'], () => fetch(`https://thawing-savannah-54100.herokuapp.com/order?userEmail=${user.email}`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

@@ -12,7 +12,7 @@ const CheckoutForm = ({ order }) => {
     const [transactionId, setTransactionId] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://thawing-savannah-54100.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -24,6 +24,7 @@ const CheckoutForm = ({ order }) => {
             .then(data => {
                 if (data?.clientSecret) {
                     setClientSecret(data.clientSecret);
+
                 }
             })
     }, [clientSecret, updatedPrice])
@@ -76,7 +77,7 @@ const CheckoutForm = ({ order }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://thawing-savannah-54100.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

@@ -17,7 +17,7 @@ const EditProfile = ({ user, setOpenModal, refetch }) => {
         }
         const proceed = window.confirm('Do You Want to Update?');
         if (proceed) {
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://thawing-savannah-54100.herokuapp.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

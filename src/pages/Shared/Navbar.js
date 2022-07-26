@@ -8,14 +8,15 @@ import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
     const [user] = useAuthState(auth);
-
     const menuItems = <>
         <li><CustomLink to='/'>HOME</CustomLink></li>
-        <li><CustomLink to='/about'>ABOUT</CustomLink></li>
         <li><CustomLink to='/blogs'>BLOG</CustomLink></li>
         <li><CustomLink to='/portfolio'>PORTFOLIO</CustomLink></li>
         {
             user && <li><CustomLink to="/dashboard">Dashboard</CustomLink></li>
+        }
+        {
+            user && <p>{user.displayName}</p>
         }
         <li>{user ?
             <button onClick={() => {
@@ -24,6 +25,7 @@ const Navbar = () => {
             }} className='btn btn-error btn-sm text-white'>Sign Out</button>
             :
             <CustomLink to="/login">LOGIN</CustomLink>}</li>
+
     </>
 
     return (

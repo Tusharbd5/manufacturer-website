@@ -1,0 +1,28 @@
+.services .icon {
+    font-size: 60px;
+    color: rgb(22, 148, 252);
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 40px;
+}
+
+.service {
+    border: 1px solid rgba(211, 211, 211, 0.567);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.service p {
+    text-align: justify;
+    color: gray;
+}
+
+@media screen and (max-width: 650px) {
+    .services {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -1,8 +1,27 @@
 import React, { useState } from 'react';
 import OrderModal from './OrderModal';
+import { toast } from 'react-toastify';
 
 const SingleOrder = ({ order, refetch, index }) => {
     const [toggole, setToggole] = useState(false);
+
+    const handleCancel = id => {
+        const proceed = window.confirm('Are You Sure to Cancel?')
+        if (proceed) {
+            fetch(`https://thawing-savannah-54100.herokuapp.com/order/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast('Order Successfully Canceled', data);
+                    refetch();
+                })
+        }
+    }
     return (
 
         <tr>
@@ -31,14 +50,14 @@ const SingleOrder = ({ order, refetch, index }) => {
 
             </td>
             <td>
-                <h2>{order.status ? order.status : 'PENDING'}</h2>
+                <h2>{order.status ? <span className='text-green-600'>{order.status}</span> : <span className='text-red-500'>PENDING</span>}</h2>
             </td>
             <td>
                 {
-                    !(order.status) && <label style={{ cursor: 'pointer' }} htmlFor="order-modal" onClick={() => setToggole(true)} className='btn btn-secondary btn-sm mr-2'>Change</label>
+                    (order.paid && !order.status) && <label style={{ cursor: 'pointer' }} htmlFor="order-modal" onClick={() => setToggole(true)} className='btn btn-secondary btn-sm mr-2'>Change</label>
                 }
 
-                {!(order.paid) && <button className='btn btn-danger btn-sm'>Cancel</button>
+                {!(order.paid) && <button onClick={() => handleCancel(order._id)} className='btn btn-danger btn-sm'>Cancel</button>
                 }
 
 
@@ -51,7 +70,7 @@ const SingleOrder = ({ order, refetch, index }) => {
 
             </td>
             <td>
-                <p> {order.paid ? <span className='text-green-700'>Completed </span> : <span className='text-red-600'>Incomplete</span>}</p>
+                <p> {order.paid ? <span className='text-green-700'>PAID </span> : <span className='text-red-600'>UNPAID</span>}</p>
             </td>
         </tr>
 

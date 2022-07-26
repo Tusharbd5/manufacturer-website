@@ -5,7 +5,7 @@ const Review = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://thawing-savannah-54100.herokuapp.com/review')
             .then(res => res.json())
             .then(data => setReviews(data));
     }, [])
@@ -13,7 +13,7 @@ const Review = () => {
         <div>
             <h1 className='text-3xl text-secondary font-bold'>User Review</h1>
 
-            <div className='grid md:grid-cols-3 justify-center gap-10 p-5'>
+            <div className='grid grid-cols-2 md:grid-cols-3 justify-center gap-10 p-5'>
                 {
                     reviews.slice(0, 9).map(review => <div key={review._id} className="card shadow-2xl bg-lime-100">
                         <div className="card-body items-center text-center">

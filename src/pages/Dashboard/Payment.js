@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51LP10IEsIwFBEs86SKl4cPNrzpbtGZegafYJg
 const Payment = () => {
     const { id } = useParams();
 
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://thawing-savannah-54100.herokuapp.com/order/${id}`;
     const { data: order, isLoading, refetch } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',
         headers: {

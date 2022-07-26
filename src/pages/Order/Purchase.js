@@ -12,11 +12,11 @@ const Purchase = () => {
     const [user] = useAuthState(auth);
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/tool/${id}`)
+    //     fetch(`https://thawing-savannah-54100.herokuapp.com/tool/${id}`)
     //         .then(res => res.json())
     //         .then(data => setTools(data))
     // }, [id, setTools]);
-    const { data: tools, isLoading, refetch } = useQuery(['tool'], () => fetch(`http://localhost:5000/tool/${id}`).then(res => res.json()))
+    const { data: tools, isLoading, refetch } = useQuery(['tool'], () => fetch(`https://thawing-savannah-54100.herokuapp.com/tool/${id}`).then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>
@@ -49,7 +49,7 @@ const Purchase = () => {
             const order = { username, userEmail, address, productPic, productName, orderedQuantity, updatedPrice };
 
             // Send data to server
-            fetch('http://localhost:5000/order', {
+            fetch('https://thawing-savannah-54100.herokuapp.com/order', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -64,7 +64,7 @@ const Purchase = () => {
             // Update quantity to database...
             const newQuantity = quantity - orderQuantity;
             tools.quantity = newQuantity;
-            fetch(`http://localhost:5000/tool/${id}`, {
+            fetch(`https://thawing-savannah-54100.herokuapp.com/tool/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

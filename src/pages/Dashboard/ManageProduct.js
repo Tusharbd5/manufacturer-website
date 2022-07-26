@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import ProductTable from './ProductTable';
 
 const ManageProduct = () => {
-    const { data: tools, isLoading, refetch } = useQuery(['tools'], () => fetch(`http://localhost:5000/tool`, {
+    const { data: tools, isLoading, refetch } = useQuery(['tools'], () => fetch(`https://thawing-savannah-54100.herokuapp.com/tool`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

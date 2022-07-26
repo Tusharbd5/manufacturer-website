@@ -9,7 +9,7 @@ import SingleOrder from './SingleOrder';
 const ManageOrders = () => {
     const navigate = useNavigate();
 
-    const { data: orders, isLoading, refetch } = useQuery(['orders'], () => fetch(`http://localhost:5000/orders`, {
+    const { data: orders, isLoading, refetch } = useQuery(['orders'], () => fetch(`https://thawing-savannah-54100.herokuapp.com/orders`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

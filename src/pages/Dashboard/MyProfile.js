@@ -13,7 +13,7 @@ const MyProfile = () => {
     const navigate = useNavigate();
     const [openModal, setOpenModal] = useState(false);
 
-    const { data, isLoading, refetch } = useQuery(['user-data'], () => fetch(`http://localhost:5000/user/${email}`, {
+    const { data, isLoading, refetch } = useQuery(['user-data'], () => fetch(`https://thawing-savannah-54100.herokuapp.com/user/${email}`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

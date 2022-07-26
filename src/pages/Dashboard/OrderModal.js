@@ -5,7 +5,7 @@ const OrderModal = ({ id, refetch, setToggole }) => {
 
     const handleStatus = () => {
 
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://thawing-savannah-54100.herokuapp.com/order/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
